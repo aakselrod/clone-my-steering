@@ -1,0 +1,5 @@
+# Ignore training data
+training-data
+
+# Ignore __pycache__
+__pycache__
