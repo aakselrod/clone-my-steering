@@ -87,13 +87,13 @@ At first, I attempted to capture good driving behavior by going through the trac
 
 Then I used the recording provided by Udacity of several laps on track one attempting to drive in the center of the track. I used the center camera images to show appropriate steering while in the center of the track. Here is an example center camera image:
 
-![center camera][center_2016_12_01_13_30_48_287.jpg]
+![center camera](center_2016_12_01_13_30_48_287.jpg)
 
 I used the left and right camera images as recovery images, teaching the neural network to stay away from the sides of the track by adding a positive steering adjustment to the left camera image and a negative steering adjustment to the right camera image:
 
-![left camera][left_2016_12_01_13_30_48_287.jpg]
+![left camera](left_2016_12_01_13_30_48_287.jpg)
 
-![right camera][right_2016_12_01_13_30_48_287.jpg]
+![right camera](right_2016_12_01_13_30_48_287.jpg)
 
 To augment the data set, I randomly flipped images and steering angles thinking that this would balance the data and prevent overfitting to the general direction of the track. I also abstracted out options for randomly shifting the image left and right by a certain number of pixels with a steering angle adjustment, as well as randomly changing image brightness, and randomly shifting the image up or down. I also added an option for rotating the image randomly clockwise or counterclockwise with a steering angle adjustment, but because this wasn't GPU-accelerated, it made the training epochs up to 10x slower and I didn't experiment with it very much. I experimented with multiple values for all of the options and came up with a good set of augmentation parameters as shows in train_config.py.
 
